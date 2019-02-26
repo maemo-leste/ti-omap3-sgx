@@ -1,0 +1,91 @@
+Source: ti-omap3-sgx
+Section: graphics
+Priority: optional
+Maintainer: Arthur Demchenkov <spinal.by@gmail.com>
+Standards-Version: 4.3.0
+Build-Depends:
+ debhelper (>= 10),
+ dh-exec (>=0.3),
+ autotools-dev
+
+Package: ti-omap3-sgx-r121
+Section: libs
+Architecture: armhf
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Provides:
+ libegl1,
+ libegl1-mesa,
+ libgles1,
+ libgles1-mesa,
+ libgles2,
+ libgles2-mesa,
+ ti-omap3-sgx (= ${binary:Version})
+Conflicts:
+ libegl1,
+ libegl1-mesa,
+ libegl1-mesa-dev,
+ libgles1,
+ libgles1-mesa,
+ libgles2,
+ libgles2-mesa,
+ libgles2-mesa-dev,
+ ti-omap3-sgx
+Replaces:
+ libegl1,
+ libegl1-mesa,
+ libgles1,
+ libgles1-mesa,
+ libgles2,
+ libgles2-mesa,
+ ti-omap3-sgx
+Description: OpenGL ES for SGX core revision 1.2.1
+
+Package: ti-omap3-sgx-r125
+Section: libs
+Architecture: armhf
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Provides:
+ libegl1,
+ libegl1-mesa,
+ libgles1,
+ libgles1-mesa,
+ libgles2,
+ libgles2-mesa,
+ ti-omap3-sgx (= ${binary:Version})
+Conflicts:
+ libegl1,
+ libegl1-mesa,
+ libegl1-mesa-dev,
+ libgles1,
+ libgles1-mesa,
+ libgles2,
+ libgles2-mesa,
+ libgles2-mesa-dev,
+ ti-omap3-sgx
+Replaces:
+ libegl1,
+ libegl1-mesa,
+ libgles1,
+ libgles1-mesa,
+ libgles2,
+ libgles2-mesa,
+ ti-omap3-sgx
+Description: OpenGL ES for SGX core revision 1.2.5
+
+Package: ti-omap3-sgx-dev
+Section: libdevel
+Architecture: armhf
+Depends: ti-omap3-sgx (= ${binary:Version}), ${misc:Depends}
+Provides:
+ libegl1-mesa-dev,
+ libgles1-mesa-dev,
+ libgles2-mesa-dev
+Conflicts:
+ libegl1-mesa-dev,
+ libgles1-mesa-dev,
+ libgles2-mesa-dev
+Replaces:
+ libegl1-mesa-dev,
+ libgles1-mesa-dev,
+ libgles2-mesa-dev
+Description: OpenGL ES development headers for SGX
