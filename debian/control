@@ -14,7 +14,7 @@ Architecture: armhf
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Provides:
  libegl1,
- libegl1-mesa,
+ libegl1-mesa (= ${libegl1-mesa:Version}),
  libgles1,
  libgles1-mesa,
  libgles2,
@@ -46,7 +46,7 @@ Architecture: armhf
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Provides:
  libegl1,
- libegl1-mesa,
+ libegl1-mesa (= ${libegl1-mesa:Version}),
  libgles1,
  libgles1-mesa,
  libgles2,

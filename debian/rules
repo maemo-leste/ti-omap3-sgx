@@ -1,6 +1,9 @@
 #!/usr/bin/make -f
 
 REVISIONS := r121 r125
+MESA_VERS := $(shell apt-cache show --no-all-versions libegl1-mesa | \
+               grep '^Version:' | sed 's/.*: //')
+SUBSTVARS := -Vlibegl1-mesa:Version="$(MESA_VERS)"
 
 %:
 	dh $@
@@ -14,3 +17,6 @@ override_dh_systemd_enable:
 
 override_dh_installinit:
 	dh_installinit --no-start --name=powervr
+
+override_dh_gencontrol:
+	dh_gencontrol -- $(SUBSTVARS)
