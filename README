@@ -1,0 +1,23 @@
+PowerVR SGX530 drivers for TI OMAP3
+===================================
+
+This is user space part of graphics drivers used on mobile devices based on
+Texas Instruments OMAP3 platform. These include Nokia N900, N950, N9.
+
+It consists of development headers, OpenGL ES libraries and some "glue" between
+kernel and user space parts.
+
+There are two SGX530 core revisions used in different devices:
+ * 1.2.1 is for OMAP34xx, OMAP35xx, AM35xx Rev.3.1
+ * 1.2.5 is for AM37xx, DM37xx, AM387x, C6A814x, AM389x, C6A816x, 811x, AM335x
+
+SGX core revision is automatically detected by the init script and proper
+symlink is then created, so the user doesn't need to worry about it.
+
+This work is based on Nemo/Mer graphics driver which was downloaded from:
+http://releases.nemomobile.org/releases/0.20130620.0.1/repos/hw/ti/omap3/n9xx-common/armv7hl/src/ti-omap3-sgx-1.4.268.1-3.1.Nemo.Adaptation.N9xx.src.rpm
+
+References:
+ * http://processors.wiki.ti.com/index.php/Graphics_SDK_Quick_installation_and_user_guide
+ * http://processors.wiki.ti.com/index.php/SGXDbg
+ * https://pandorawiki.org/SGX_drivers
