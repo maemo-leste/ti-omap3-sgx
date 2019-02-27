@@ -1,5 +1,1 @@
-#!/usr/bin/dh-exec
-r125/lib/*   usr/lib/${DEB_HOST_MULTIARCH}/
-r125/sbin/*  usr/sbin/
-data/powervr usr/sbin/
-data/powervr.ini etc/
+usr/lib/*/ti-omap3-sgx/r125/*

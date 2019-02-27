@@ -5,50 +5,27 @@ Maintainer: Arthur Demchenkov <spinal.by@gmail.com>
 Standards-Version: 4.3.0
 Build-Depends:
  debhelper (>= 10),
- dh-exec (>=0.3),
  autotools-dev
 
 Package: ti-omap3-sgx-r121
 Section: libs
 Architecture: armhf
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Provides:
- libegl1,
- libgles1,
- libgles2,
- libegl1-mesa (= ${libegl1-mesa:Version}),
- libgles1-mesa,
- libgles2-mesa,
- ti-omap3-sgx (= ${binary:Version})
-Conflicts:
- libegl1,
- libgles1,
- libgles2,
- libegl1-mesa,
- libgles1-mesa,
- libgles2-mesa,
- ti-omap3-sgx-libegl1,
- ti-omap3-sgx-libgles1,
- ti-omap3-sgx-libgles2,
-Breaks:
- ti-omap3-sgx (<< 1.4.268.2)
-Replaces:
- libegl1,
- libgles1,
- libgles2,
- libegl1-mesa,
- libgles1-mesa,
- libgles2-mesa,
- ti-omap3-sgx-libegl1,
- ti-omap3-sgx-libgles1,
- ti-omap3-sgx-libgles2,
- ti-omap3-sgx (<< 1.4.268.2)
 Description: ImgTec SGX drivers for TI OMAP3, SGX530 core 1.2.1
 
 Package: ti-omap3-sgx-r125
 Section: libs
 Architecture: armhf
 Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: ImgTec SGX drivers for TI OMAP3, SGX530 core 1.2.5
+
+Package: ti-omap3-sgx
+Section: libs
+Architecture: armhf
+Depends: ${misc:Depends},
+ ti-omap3-sgx-r121 | ti-omap3-sgx-r125
+Recommends:
+ ti-omap3-sgx-r121, ti-omap3-sgx-r125
 Provides:
  libegl1,
  libgles1,
@@ -56,7 +33,6 @@ Provides:
  libegl1-mesa (= ${libegl1-mesa:Version}),
  libgles1-mesa,
  libgles2-mesa,
- ti-omap3-sgx (= ${binary:Version})
 Conflicts:
  libegl1,
  libgles1,
@@ -67,8 +43,6 @@ Conflicts:
  ti-omap3-sgx-libegl1,
  ti-omap3-sgx-libgles1,
  ti-omap3-sgx-libgles2,
-Breaks:
- ti-omap3-sgx (<< 1.4.268.2)
 Replaces:
  libegl1,
  libgles1,
@@ -79,8 +53,7 @@ Replaces:
  ti-omap3-sgx-libegl1,
  ti-omap3-sgx-libgles1,
  ti-omap3-sgx-libgles2,
- ti-omap3-sgx (<< 1.4.268.2)
-Description: ImgTec SGX drivers for TI OMAP3, SGX530 core 1.2.5
+Description: OMAP3 drivers for PowerVR SGX
 
 Package: ti-omap3-sgx-dev
 Section: libdevel
@@ -99,11 +72,3 @@ Replaces:
  libgles1-mesa-dev,
  libgles2-mesa-dev
 Description: Development headers for PowerVR SGX
-
-Package: ti-omap3-sgx
-Section: oldlibs
-Architecture: all
-Depends: ${misc:Depends},
- ti-omap3-sgx-r121 | ti-omap3-sgx-r125
-Description: transitional package
- This is a transitional package. It can safely be removed.

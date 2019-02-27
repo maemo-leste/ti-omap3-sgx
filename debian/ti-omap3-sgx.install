@@ -1,0 +1,4 @@
+usr/lib/*/ti-omap3-sgx/current
+usr/lib/*/*.so*
+usr/sbin/*
+etc/*

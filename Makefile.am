@@ -1,5 +1,6 @@
 ARCHIVE = data/ti-omap3-sgx-bin-1.4.268-armv7hl.tar.bz2
 SCRIPT  = data/powervr
+REVISIONS = r121 r125
 
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = data/glesv2.pc
@@ -24,22 +25,16 @@ DIRS = $(DESTDIR)$(libdir) \
        $(DESTDIR)$(sbindir) \
        $(DESTDIR)$(sysconfdir) \
        $(DESTDIR)$(includedir) \
+       $(foreach rev, $(REVISIONS), $(DESTDIR)$(pkglibexecdir)/$(rev)) \
        $(DESTDIR)$(docdir)
 
-REVISIONS = r121 r125
-BIN_DIRS := $(foreach rev, $(REVISIONS), $(rev)/sbin)
-LIB_DIRS := $(foreach rev, $(REVISIONS), $(rev)/lib)
+$(SCRIPT): %: %.in config.status
+	sed 's,@pkglibexecdir@,$(pkglibexecdir),g' $< > $@
 
-$(REVISIONS): %: %/lib %/sbin
-
-$(BIN_DIRS): files
-	rev=$(@:/sbin=) && \
-	install -D -m755 "files/sbin/pvrsrvinit_$$rev" "$@/pvrsrvinit"
-
-$(LIB_DIRS): files
-	rev=$(@:/lib=) && \
+$(REVISIONS): files
+	install -D -m755 "files/sbin/pvrsrvinit_$@" "$@/pvrsrvinit"
 	for lib in $(LIBS); do \
-	  install -vD -m644 "files/lib/`basename $$lib .so`_$$rev.so" $@/$$lib ; \
+	  install -vD -m644 "files/lib/`basename $$lib .so`_$@.so" $@/$$lib ; \
 	done
 
 files: $(ARCHIVE)
@@ -50,14 +45,20 @@ files: $(ARCHIVE)
 $(DIRS):
 	install -d $@
 
-all: $(SGX)
+all: $(REVISIONS) $(SCRIPT)
 
 install: all $(DIRS)
-	install -vm644 $(SGX)/lib/*   $(DESTDIR)$(libdir)
-	install -vm755 $(SGX)/sbin/*  $(DESTDIR)$(sbindir)
-	install -vm755 $(SCRIPT)  $(DESTDIR)$(sbindir)
-	cp -vr files/include/*     $(DESTDIR)$(includedir)
+	for rev in $(REVISIONS); do \
+	  install -vm644 $$rev/*.so $(DESTDIR)$(pkglibexecdir)/$$rev; \
+	  install -vm755 $$rev/pvrsrvinit $(DESTDIR)$(pkglibexecdir)/$$rev; \
+	done
+	$(LN_S) $(firstword $(REVISIONS)) $(DESTDIR)$(pkglibexecdir)/current
+	install -vm755 $(SCRIPT) $(DESTDIR)$(sbindir)
+	cp -vr files/include/* $(DESTDIR)$(includedir)
 	cp -vr files/share/doc/*/* $(DESTDIR)$(docdir)
+	for lib in $(LIBS); do \
+	  $(LN_S) $(pkglibexecdir)/current/$$lib $(DESTDIR)$(libdir); \
+	done
 	$(LN_S) libGLESv2.so  $(DESTDIR)$(libdir)/libGLESv2.so.2
 	$(LN_S) libGLES_CM.so $(DESTDIR)$(libdir)/libGLESv1_CM.so.1
 	$(LN_S) libEGL.so     $(DESTDIR)$(libdir)/libEGL.so.1
@@ -65,4 +66,4 @@ install: all $(DIRS)
 	$(MAKE) install-data
 
 clean-local:
-	rm -vrf files $(REVISIONS)
+	rm -vrf files $(SCRIPT) $(REVISIONS)
