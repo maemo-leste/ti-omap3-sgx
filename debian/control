@@ -43,7 +43,7 @@ Replaces:
  ti-omap3-sgx-libgles1,
  ti-omap3-sgx-libgles2,
  ti-omap3-sgx (<< 1.4.268.2)
-Description: OpenGL ES for SGX core revision 1.2.1
+Description: ImgTec SGX drivers for TI OMAP3, SGX530 core 1.2.1
 
 Package: ti-omap3-sgx-r125
 Section: libs
@@ -80,7 +80,7 @@ Replaces:
  ti-omap3-sgx-libgles1,
  ti-omap3-sgx-libgles2,
  ti-omap3-sgx (<< 1.4.268.2)
-Description: OpenGL ES for SGX core revision 1.2.5
+Description: ImgTec SGX drivers for TI OMAP3, SGX530 core 1.2.5
 
 Package: ti-omap3-sgx-dev
 Section: libdevel
@@ -98,7 +98,7 @@ Replaces:
  libegl1-mesa-dev,
  libgles1-mesa-dev,
  libgles2-mesa-dev
-Description: OpenGL ES development headers for SGX
+Description: Development headers for PowerVR SGX
 
 Package: ti-omap3-sgx
 Section: oldlibs
