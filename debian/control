@@ -27,7 +27,11 @@ Conflicts:
  libegl1-mesa,
  libgles1-mesa,
  libgles2-mesa,
- ti-omap3-sgx
+ ti-omap3-sgx-libegl1,
+ ti-omap3-sgx-libgles1,
+ ti-omap3-sgx-libgles2,
+Breaks:
+ ti-omap3-sgx (<< 1.4.268.2)
 Replaces:
  libegl1,
  libgles1,
@@ -35,7 +39,10 @@ Replaces:
  libegl1-mesa,
  libgles1-mesa,
  libgles2-mesa,
- ti-omap3-sgx
+ ti-omap3-sgx-libegl1,
+ ti-omap3-sgx-libgles1,
+ ti-omap3-sgx-libgles2,
+ ti-omap3-sgx (<< 1.4.268.2)
 Description: OpenGL ES for SGX core revision 1.2.1
 
 Package: ti-omap3-sgx-r125
@@ -57,7 +64,11 @@ Conflicts:
  libegl1-mesa,
  libgles1-mesa,
  libgles2-mesa,
- ti-omap3-sgx
+ ti-omap3-sgx-libegl1,
+ ti-omap3-sgx-libgles1,
+ ti-omap3-sgx-libgles2,
+Breaks:
+ ti-omap3-sgx (<< 1.4.268.2)
 Replaces:
  libegl1,
  libgles1,
@@ -65,7 +76,10 @@ Replaces:
  libegl1-mesa,
  libgles1-mesa,
  libgles2-mesa,
- ti-omap3-sgx
+ ti-omap3-sgx-libegl1,
+ ti-omap3-sgx-libgles1,
+ ti-omap3-sgx-libgles2,
+ ti-omap3-sgx (<< 1.4.268.2)
 Description: OpenGL ES for SGX core revision 1.2.5
 
 Package: ti-omap3-sgx-dev
@@ -85,3 +99,11 @@ Replaces:
  libgles1-mesa-dev,
  libgles2-mesa-dev
 Description: OpenGL ES development headers for SGX
+
+Package: ti-omap3-sgx
+Section: oldlibs
+Architecture: all
+Depends: ${misc:Depends},
+ ti-omap3-sgx-r121 | ti-omap3-sgx-r125
+Description: transitional package
+ This is a transitional package. It can safely be removed.
