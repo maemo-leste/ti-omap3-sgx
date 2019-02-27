@@ -14,26 +14,26 @@ Architecture: armhf
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Provides:
  libegl1,
- libegl1-mesa (= ${libegl1-mesa:Version}),
  libgles1,
- libgles1-mesa,
  libgles2,
+ libegl1-mesa (= ${libegl1-mesa:Version}),
+ libgles1-mesa,
  libgles2-mesa,
  ti-omap3-sgx (= ${binary:Version})
 Conflicts:
  libegl1,
- libegl1-mesa,
  libgles1,
- libgles1-mesa,
  libgles2,
+ libegl1-mesa,
+ libgles1-mesa,
  libgles2-mesa,
  ti-omap3-sgx
 Replaces:
  libegl1,
- libegl1-mesa,
  libgles1,
- libgles1-mesa,
  libgles2,
+ libegl1-mesa,
+ libgles1-mesa,
  libgles2-mesa,
  ti-omap3-sgx
 Description: OpenGL ES for SGX core revision 1.2.1
@@ -44,26 +44,26 @@ Architecture: armhf
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Provides:
  libegl1,
- libegl1-mesa (= ${libegl1-mesa:Version}),
  libgles1,
- libgles1-mesa,
  libgles2,
+ libegl1-mesa (= ${libegl1-mesa:Version}),
+ libgles1-mesa,
  libgles2-mesa,
  ti-omap3-sgx (= ${binary:Version})
 Conflicts:
  libegl1,
- libegl1-mesa,
  libgles1,
- libgles1-mesa,
  libgles2,
+ libegl1-mesa,
+ libgles1-mesa,
  libgles2-mesa,
  ti-omap3-sgx
 Replaces:
  libegl1,
- libegl1-mesa,
  libgles1,
- libgles1-mesa,
  libgles2,
+ libegl1-mesa,
+ libgles1-mesa,
  libgles2-mesa,
  ti-omap3-sgx
 Description: OpenGL ES for SGX core revision 1.2.5
