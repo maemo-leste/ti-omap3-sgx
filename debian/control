@@ -23,12 +23,10 @@ Provides:
 Conflicts:
  libegl1,
  libegl1-mesa,
- libegl1-mesa-dev,
  libgles1,
  libgles1-mesa,
  libgles2,
  libgles2-mesa,
- libgles2-mesa-dev,
  ti-omap3-sgx
 Replaces:
  libegl1,
@@ -55,12 +53,10 @@ Provides:
 Conflicts:
  libegl1,
  libegl1-mesa,
- libegl1-mesa-dev,
  libgles1,
  libgles1-mesa,
  libgles2,
  libgles2-mesa,
- libgles2-mesa-dev,
  ti-omap3-sgx
 Replaces:
  libegl1,
