@@ -1,3 +1,10 @@
+ti-omap3-sgx (1.4.268.2) unstable; urgency=medium
+
+  * Resolve internal conflicts.
+  * Make package auto upgradable.
+
+ -- Arthur Demchenkov <spinal.by@gmail.com>  Wed, 27 Feb 2019 04:48:40 +0300
+
 ti-omap3-sgx (1.4.268.1) unstable; urgency=medium
 
   * Initial Release.
