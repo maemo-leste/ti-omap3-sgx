@@ -1,9 +1,9 @@
 ARCHIVE = data/ti-omap3-sgx-bin-1.4.268-armv7hl.tar.bz2
-SCRIPT  = data/powervr
+SCRIPT  = data/sbin/powervr
 REVISIONS = r121 r125
 
 pkgconfigdir = $(libdir)/pkgconfig
-pkgconfig_DATA = data/glesv2.pc
+pkgconfig_DATA = data/pkgconfig/glesv2.pc
 
 LIBS = libpvrPVR2D_FLIPWSEGL.so \
        libpvrPVR2D_BLITWSEGL.so \
@@ -62,7 +62,7 @@ install: all $(DIRS)
 	$(LN_S) libGLESv2.so  $(DESTDIR)$(libdir)/libGLESv2.so.2
 	$(LN_S) libGLES_CM.so $(DESTDIR)$(libdir)/libGLESv1_CM.so.1
 	$(LN_S) libEGL.so     $(DESTDIR)$(libdir)/libEGL.so.1
-	install -vm644 data/powervr.ini $(DESTDIR)$(sysconfdir)/powervr.ini
+	install -vm644 data/etc/powervr.ini $(DESTDIR)$(sysconfdir)/powervr.ini
 	$(MAKE) install-data
 
 clean-local:
