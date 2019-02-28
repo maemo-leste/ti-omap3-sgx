@@ -29,7 +29,9 @@ if [ "${ARCH#arm}" != "${ARCH}" ] ; then
     ln -snf r$SGX_CORE_REV @pkglibexecdir@/current
   fi
 
-  @pkglibexecdir@/current/pvrsrvinit
+  /lib/arm-linux-gnueabihf/ld-linux.so.3 \
+    @pkglibexecdir@/current/pvrsrvinit
+
   modprobe omaplfb
   chgrp video /dev/pvrsrvkm
   chmod 660 /dev/pvrsrvkm
