@@ -1,3 +1,10 @@
+ti-omap3-sgx (1.4.268.4) unstable; urgency=medium
+
+  * Fix broken ld.so loader hardcoded to pvrsrvinit.
+  * Remove untracked links created by the old package.
+
+ -- Arthur Demchenkov <spinal.by@gmail.com>  Thu, 28 Feb 2019 13:52:56 +0300
+
 ti-omap3-sgx (1.4.268.3) unstable; urgency=medium
 
   * User doesn't have to pick the chip revision on package installation,
