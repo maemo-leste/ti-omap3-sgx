@@ -1,3 +1,10 @@
+ti-omap3-sgx (1.4.268.3) unstable; urgency=medium
+
+  * User doesn't have to pick the chip revision on package installation,
+    now it's done automatically on system startup.
+
+ -- Arthur Demchenkov <spinal.by@gmail.com>  Thu, 28 Feb 2019 05:07:50 +0300
+
 ti-omap3-sgx (1.4.268.2) unstable; urgency=medium
 
   * Resolve internal conflicts.
