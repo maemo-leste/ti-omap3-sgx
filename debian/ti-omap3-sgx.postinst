@@ -1,0 +1,15 @@
+#!/bin/sh
+set -e
+
+# Remove untracked links created by the old package
+if [ "$1" = "configure" ]; then
+    for link in libOpenVGU.so libPVRScopeServices.so libglslcompiler.so \
+                libpvr2d.so libOpenVG.so libsrv_um.so ; do
+        link=/usr/lib/$link
+        [ -L "$link" ] && [ -z "$(readlink -e $link)" ] && rm -f $link
+    done
+fi
+
+#DEBHELPER#
+
+exit 0
