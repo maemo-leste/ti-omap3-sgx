@@ -5,7 +5,9 @@ Maintainer: Arthur Demchenkov <spinal.by@gmail.com>
 Standards-Version: 4.3.0
 Build-Depends:
  debhelper (>= 10),
- autotools-dev
+ libstdc++6,
+ libxfixes3,
+ libxext6,
 
 Package: ti-omap3-sgx-r121
 Section: libs
