@@ -1,3 +1,9 @@
+ti-omap3-sgx (1.4.268.5) unstable; urgency=medium
+
+  * Make apt prefer ti-omap3-sgx-dev over mesa packages
+
+ -- Arthur Demchenkov <spinal.by@gmail.com>  Fri, 06 Mar 2020 16:34:24 +0300
+
 ti-omap3-sgx (1.4.268.4) unstable; urgency=medium
 
   * Fix broken ld.so loader hardcoded to pvrsrvinit.
