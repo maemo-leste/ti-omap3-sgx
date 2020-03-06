@@ -23,8 +23,8 @@ LIBS = libpvrPVR2D_FLIPWSEGL.so \
 
 DIRS = $(DESTDIR)$(libdir) \
        $(DESTDIR)$(sbindir) \
-       $(DESTDIR)$(sysconfdir) \
        $(DESTDIR)$(includedir) \
+       $(DESTDIR)$(sysconfdir)/apt/preferences.d \
        $(foreach rev, $(REVISIONS), $(DESTDIR)$(pkglibexecdir)/$(rev)) \
        $(DESTDIR)$(docdir)
 
@@ -62,7 +62,7 @@ install: all $(DIRS)
 	$(LN_S) libGLESv2.so  $(DESTDIR)$(libdir)/libGLESv2.so.2
 	$(LN_S) libGLES_CM.so $(DESTDIR)$(libdir)/libGLESv1_CM.so.1
 	$(LN_S) libEGL.so     $(DESTDIR)$(libdir)/libEGL.so.1
-	install -vm644 data/etc/powervr.ini $(DESTDIR)$(sysconfdir)/powervr.ini
+	cp -vr  data/etc/*    $(DESTDIR)$(sysconfdir)
 	$(MAKE) install-data
 
 clean-local:
