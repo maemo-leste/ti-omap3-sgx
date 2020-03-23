@@ -1,3 +1,10 @@
+ti-omap3-sgx (1.4.268.6) unstable; urgency=medium
+
+  * Fix systemd .service file
+  * Add LSB header to init script
+
+ -- Arthur Demchenkov <spinal.by@gmail.com>  Mon, 23 Mar 2020 20:04:50 +0300
+
 ti-omap3-sgx (1.4.268.5) unstable; urgency=medium
 
   * Make apt prefer ti-omap3-sgx-dev over mesa packages
