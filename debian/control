@@ -30,6 +30,7 @@ Section: libs
 Architecture: armhf
 Depends:
  ${misc:Depends},
+ maemo-system-services,
  ti-omap3-sgx-r121 | ti-omap3-sgx-r125,
 Recommends:
  ti-omap3-sgx-r121,

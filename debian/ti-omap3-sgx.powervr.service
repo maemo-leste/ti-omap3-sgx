@@ -1,7 +1,5 @@
 [Unit]
 Description=TI OMAP3 SGX driver
-After=local-fs.target
-Before=systemd-user-sessions.service
 
 [Service]
 Type=notify
@@ -9,4 +7,5 @@ RemainAfterExit=yes
 ExecStart=/usr/sbin/powervr
 
 [Install]
-WantedBy=basic.target
+WantedBy=gpu.target
+Alias=pvrsgx.service sgx.service
