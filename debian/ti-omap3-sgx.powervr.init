@@ -1,11 +1,14 @@
 #!/sbin/openrc-run
-# Copyright 2019 Maemo Leste
-# Distributed under the terms of the GNU General Public License v2
-
-depend() {
-    before logger
-    after eudev
-}
+### BEGIN INIT INFO
+# Provides:          powervr gpu
+# Required-Start:    $remote_fs udev
+# Required-Stop:
+# Default-Start:     2 3 4 5
+# Default-Stop:
+# Short-Description: PowerVR SGX initialization
+# Description:       This init script is used to initialize
+#                    PowerVR SGX GPU driver
+### END INIT INFO
 
 start() {
     ebegin "Starting powervr"
