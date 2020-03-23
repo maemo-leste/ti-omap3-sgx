@@ -11,7 +11,3 @@ start() {
     ebegin "Starting powervr"
     /usr/sbin/powervr
 }
-
-stop() {
-    ebegin "Stopping powervr (no-op)"
-}
