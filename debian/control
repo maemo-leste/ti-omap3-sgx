@@ -2,7 +2,7 @@ Source: ti-omap3-sgx
 Section: n900
 Priority: optional
 Maintainer: Arthur Demchenkov <spinal.by@gmail.com>
-Standards-Version: 4.3.0
+Standards-Version: 3.9.1
 Build-Depends:
  debhelper (>= 10),
  libstdc++6,
