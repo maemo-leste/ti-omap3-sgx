@@ -1,3 +1,0 @@
-Package: libegl1-mesa-dev libgles1-mesa-dev libgles2-mesa-dev
-Pin: release *
-Pin-Priority: -10
