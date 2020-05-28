@@ -1,3 +1,9 @@
+ti-omap3-sgx (1.4.268.7-1) unstable; urgency=medium
+
+  * Append package revision.
+
+ -- Ivan J. <parazyd@dyne.org>  Thu, 28 May 2020 21:52:04 +0200
+
 ti-omap3-sgx (1.4.268.7) unstable; urgency=medium
 
    * Extract tarball files into their respective directories.
