@@ -6,7 +6,7 @@ Before=systemd-user-sessions.service
 [Service]
 Type=notify
 RemainAfterExit=yes
-ExecStart=/usr/sbin/powervr
+ExecStart=/usr/sbin/pvrsrvinit
 
 [Install]
 WantedBy=basic.target

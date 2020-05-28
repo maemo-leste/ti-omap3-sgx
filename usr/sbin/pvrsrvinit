@@ -1,6 +1,22 @@
 #!/bin/sh
 # Script to initialize the SGX userspace driver based on the SGX core revision
 
+ARCH="$(uname -m)"
+
+fin() {
+	[ -x /bin/systemd-notify ] && exec /bin/systemd-notify --ready
+	exit 0
+}
+
+if [ "${ARCH#arm}" = "${ARCH}" ]; then
+	fin
+fi
+
+# Fix kernel oops by locking CPU frequency
+# https://github.com/maemo-leste/bugtracker/issues/212
+GOVERNOR=$(cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor)
+echo performance > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+
 if [ "$1" = "--force" ]; then
 	modprobe pvrsrvkm > /dev/null
 	mkdir -p /var/lib/opengles-sgx-img
@@ -8,6 +24,8 @@ if [ "$1" = "--force" ]; then
 else
 	modprobe pvrsrvkm
 fi
+
+echo "$GOVERNOR" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
 
 if ! [ -f /proc/pvr/version ]; then
 	if [ "$1" != "--force" ]; then
@@ -17,7 +35,7 @@ if ! [ -f /proc/pvr/version ]; then
 fi
 
 SGX_CORE_REV=$(grep -Eo "SGX revision = ([0-9][.][0-9][.][0-9])" \
-	       /proc/pvr/version | cut -d= -f 2 | tr -d ". ")
+	/proc/pvr/version | cut -d= -f 2 | tr -d ". ")
 
 if [ "$SGX_CORE_REV" = "" ]; then
 	echo "Unable to determine SGX core revision" > /dev/console
@@ -30,9 +48,14 @@ if ! [ -f "/usr/sbin/pvrsrvinit_r$SGX_CORE_REV" ]; then
 fi
 
 # Activate the correct SGX libraries and binaries based on the chip revision
-ln -sf "r$SGX_CORE_REV" /usr/lib/arm-linux-gnueabihf/ti-omap3-sgx/current
+ln -snf "r$SGX_CORE_REV" /usr/lib/arm-linux-gnueabihf/ti-omap3-sgx/current
 rm -rf /var/lib/opengles-sgx-img
 
 if [ "$1" != "--force" ]; then
-	exec "/usr/sbin/pvrsrvinit_r$SGX_CORE_REV"
+	/lib/arm-linux-gnueabihf/ld-linux.so.3 "/usr/sbin/pvrsrvinit_r$SGX_CORE_REV"
+	modprobe omaplfb
+	chgrp video /dev/pvrsrvkm
+	chmod 660 /dev/pvrsrvkm
 fi
+
+fin

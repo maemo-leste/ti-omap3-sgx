@@ -9,7 +9,7 @@ depend() {
 
 start() {
     ebegin "Starting powervr"
-    /usr/sbin/powervr
+    /usr/sbin/pvrsrvinit
 }
 
 stop() {
