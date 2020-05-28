@@ -9,25 +9,10 @@ Build-Depends:
  libxfixes3,
  libxext6,
 
-Package: ti-omap3-sgx-r121
-Section: libs
-Architecture: armhf
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: ImgTec SGX drivers for TI OMAP3, SGX530 core 1.2.1
-
-Package: ti-omap3-sgx-r125
-Section: libs
-Architecture: armhf
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: ImgTec SGX drivers for TI OMAP3, SGX530 core 1.2.5
-
 Package: ti-omap3-sgx
 Section: libs
 Architecture: armhf
 Depends: ${misc:Depends},
- ti-omap3-sgx-r121 | ti-omap3-sgx-r125
-Recommends:
- ti-omap3-sgx-r121, ti-omap3-sgx-r125
 Provides:
  libegl1,
  libgles1,
