@@ -1,3 +1,9 @@
+ti-omap3-sgx (1.4.268.8-1) unstable; urgency=medium
+
+  * Create a default symlink to r121.
+
+ -- Ivan J. <parazyd@dyne.org>  Fri, 05 Jun 2020 11:14:09 +0200
+
 ti-omap3-sgx (1.4.268.7-1) unstable; urgency=medium
 
   * Append package revision.
