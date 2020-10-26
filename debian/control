@@ -53,4 +53,4 @@ Depends: ti-omap3-sgx (= ${binary:Version}), ${misc:Depends},
 Provides: sgx-lib-dev
 Conflicts: sgx-lib-dev
 Replaces: sgx-lib-dev
-escription: Development headers for PowerVR SGX
+Description: Development headers for PowerVR SGX
