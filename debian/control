@@ -48,9 +48,9 @@ Description: OMAP3 drivers for PowerVR SGX
 Package: ti-omap3-sgx-dev
 Architecture: armhf
 Depends: ti-omap3-sgx (= ${binary:Version}), ${misc:Depends},
- libegl-dev,
- libgles-dev,
+ libegl-dev (= ${libglvnd0:Version}),
+ libgles-dev (= ${libglvnd0:Version}),
 Provides: sgx-lib-dev
 Conflicts: sgx-lib-dev
 Replaces: sgx-lib-dev
-Description: Development headers for PowerVR SGX
+escription: Development headers for PowerVR SGX
