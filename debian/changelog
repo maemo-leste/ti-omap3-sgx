@@ -1,3 +1,9 @@
+ti-omap3-sgx (1.4.268.9-1) unstable; urgency=medium
+
+  * Try depending on specific versions of libegl-dev/libgles-dev provided by glvnd.
+
+ -- Ivan J. <parazyd@dyne.org>  Mon, 26 Oct 2020 15:08:30 +0100
+
 ti-omap3-sgx (1.4.268.8-1) unstable; urgency=medium
 
   * Create a default symlink to r121.
